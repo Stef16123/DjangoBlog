@@ -1,0 +1,24 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+{{post.title}} - {{block.super}}
+{% endblock %}
+{% block content %}
+<h1>{{post.title|title }}</h1>
+
+	<p>
+	{{ post.body }}
+	</p>
+	<p>
+	{{ post.date_pub }}
+	</p>
+<form action='{{post.get_delete_url}}', method='post'>
+{% csrf_token %}
+		
+are you serios хочешь удалить?
+<a href="{{post.get_absolute_url}}">Net</a>
+<button type="submit" class='btn btn-primary'>
+ Влад хуй
+</button>
+</form>
+{% endblock %}

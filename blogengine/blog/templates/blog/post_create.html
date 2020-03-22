@@ -1,0 +1,27 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+Tag Create - {{block.super}}
+{% endblock %}
+{% block content %}
+<form action='{% url "post_create_url"  %}', method='post'>
+	{% csrf_token %}
+		
+{% for field in form %}
+
+{% if field.errors %}
+		{{field.errors}}
+{% endif %}
+
+	<p>
+	{{field}} - {{field.label}}
+	</p>
+{% endfor %}
+
+<button type="submit" class='btn btn-primary'>
+ Влад хуй
+</button>
+</form>
+
+
+{% endblock %}

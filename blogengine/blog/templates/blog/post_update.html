@@ -1,0 +1,27 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+Post Edit - {{block.super}}
+{% endblock %}
+{% block content %}
+<form action='{{ Post.get_update_url}}', method='post'>
+	{% csrf_token %}
+		
+{% for field in form %}
+
+{% if field.errors %}
+		{{field.errors}}
+{% endif %}
+
+	<p>
+	{{field}} - {{field.label}}
+	</p>
+{% endfor %}
+
+<button type="submit" class='btn btn-primary'>
+ Влад хуй
+</button>
+</form>
+
+
+{% endblock %}
